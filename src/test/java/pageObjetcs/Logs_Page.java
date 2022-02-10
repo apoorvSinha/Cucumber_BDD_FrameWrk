@@ -33,6 +33,8 @@ public class Logs_Page {
     public void ClickSystemMainMenu(){
         SystemMainMenu.click();
     }
+
+
     public void ClickLogsSubMenu(){
         LogSubMenu.click();
     }
