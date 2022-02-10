@@ -10,7 +10,7 @@ Feature: Get all logs of the system
     Scenario:User analyzes log tables to see different types of logs
       Given User clicks on System on main menu
       And User clicks on log menu of SubMenu
-      Then User selects the log level with "Error"
+      Then User selects the log level with "warning"
       And User scrolls multiple pages for all alerts
 
 

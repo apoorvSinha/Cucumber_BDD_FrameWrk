@@ -32,10 +32,10 @@ public class LogsStepDefs extends BaseSteps {
         logs.ClickSearchButton();
     }
     @And("User scrolls multiple pages for all alerts")
-    public void user_scrolls_multiple_pages_for_all_alerts() {
+    public void user_scrolls_multiple_pages_for_all_alerts() throws InterruptedException {
         logs.getAllMessages();
         logs.ClickNextButton();
-
+        Thread.sleep(3000);
     }
 
 }
