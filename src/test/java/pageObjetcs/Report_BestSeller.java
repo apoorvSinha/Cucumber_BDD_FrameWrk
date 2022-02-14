@@ -1,0 +1,28 @@
+package pageObjetcs;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Report_BestSeller {
+    WebDriver ldriver;
+    public Report_BestSeller(WebDriver rdriver) {
+        ldriver = rdriver;
+        PageFactory.initElements(ldriver, rdriver);
+    }
+    @FindBy(xpath="//li//a//p[contains(text(),'Reports')]")
+    WebElement ReportMainMeu;
+    @FindBy(xpath="//li//a//p[contains(text(),' Bestsellers')]")
+    WebElement BestSellerSubMenu;
+    @FindBy(xpath="//div[@class='card card-default']//div[@class='card-body']")
+    WebElement getTableView;
+    @FindBy(xpath="//tbody//tr//td[1]")
+    WebElement getNames;
+    @FindBy(xpath="//tbody//tr//td[3]")
+    WebElement getAmount;
+
+    public void ClickMainMenuOnReport() {
+        ReportMainMeu.click();
+    }
+}
