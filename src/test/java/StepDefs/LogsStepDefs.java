@@ -13,7 +13,7 @@ public class LogsStepDefs extends BaseSteps {
     @Given("User clicks on System on main menu")
     public void user_clicks_on_system_on_main_menu() {
         logs = new Logs_Page(driver);
-        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         logs.ClickSystemMainMenu();
     }
 
