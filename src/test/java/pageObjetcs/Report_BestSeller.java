@@ -40,5 +40,12 @@ public class Report_BestSeller {
         bs.js = (JavascriptExecutor) ldriver;
 
     }
+
+    public void getNamesFromPage(){
+
+    }
+    public void getAmountFromPage(){
+
+    }
 }
 
