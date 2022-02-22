@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         publish = true,
-        features = ".//Features/reports.feature",
+        features = ".//Features/product_add.feature",
         glue = "StepDefs",
         dryRun = true,
         monochrome = true,
