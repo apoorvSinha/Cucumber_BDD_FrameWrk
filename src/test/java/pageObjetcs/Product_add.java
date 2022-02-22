@@ -41,4 +41,5 @@ public class Product_add {
     @FindBy(xpath = "//select[@id='ManageInventoryMethodId']")
     WebElement inventoryMethod;
 
+
 }
