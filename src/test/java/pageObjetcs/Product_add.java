@@ -1,8 +1,11 @@
 package pageObjetcs;
 
+import StepDefs.BaseSteps;
 import Utilities.utility_excel;
+import io.cucumber.java.ht.Le;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -14,12 +17,20 @@ import java.util.Map;
 
 public class Product_add {
     public WebDriver ldriver;
-
+    BaseSteps bs = new BaseSteps();
     public Product_add(WebDriver rdriver) {
         ldriver = rdriver;
         PageFactory.initElements(ldriver, this);
     }
 
+    @FindBy(xpath = "//li//a//p[contains(text(),'Catalog')]")
+    WebElement CatalogMainMenu;
+    @FindBy(xpath = "//li//a//p[contains(text(),' Products')]")
+    WebElement ProductsSubMenu;
+    @FindBy(linkText = "Add new")
+    WebElement AddNewProduct;
+    @FindBy(xpath = "//button[@class='btn btn-primary']")
+    WebElement SaveButton;
 
     @FindBy(xpath = "//input[@id='Name']")
     WebElement ProductName;
@@ -45,15 +56,26 @@ public class Product_add {
     WebElement Length;
     @FindBy(xpath = "//input[@id='Height']")
     WebElement Height;
+    @FindBy(xpath = "//input[@id='Width']")
+    WebElement Width;
     @FindBy(xpath = "//select[@id='ManageInventoryMethodId']")
     WebElement inventoryMethod;
 
-    public static void getValuesFromSheet() throws IOException {
 
-        HashMap<String, String> data = utility_excel.ExternalDataFetcher();
-        for (Map.Entry<String, String> e : data.entrySet()) {
-
-        }
+    public void ClickMainMenuCatalog(){
+        CatalogMainMenu.click();
+    }
+    public void ClickSubMenuProduct(){
+        ProductsSubMenu.click();
+    }
+    public void AddNewProductClick(){
+        AddNewProduct.click();
+    }
+    public void SaveButtonClick(){
+        //Actions action = new Actions(ldriver);
+        //action.moveToElement(SaveButton);
+        bs.js.executeScript("arguments[0].scrollIntoView(true);",SaveButton );
+        SaveButton.click();
     }
 
     public void EnterProductName(String name) {
@@ -155,29 +177,49 @@ public class Product_add {
     }
 
     public void TaxExempt(String tx) {
-
         if (!TaxExempt.isSelected()) {
             if (tx.equalsIgnoreCase("yes")) {
                 TaxExempt.click();
-            } else {
-                TaxCategorySelection(tx);
             }
         }
         //tax exempt selcted
         else {
             if (tx.equalsIgnoreCase("no")) {
                 TaxExempt.click();
-                TaxCategorySelection(tx);
             }
         }
-
     }
 
     public void IsShippinEnabled(String shp){
         if(!ShippingEnabled.isSelected()){
-            if(shp.equalsIgnoreCase("no")){
-
+            if(shp.equalsIgnoreCase("yes")){
+                ShippingEnabled.click();
             }
+        }
+        else{
+            if(shp.equalsIgnoreCase("no")){
+                ShippingEnabled.click();
+            }
+        }
+    }
+    public void EnterProductSpecifications(String weight, String length, String width, String height){
+        Weight.sendKeys(weight);
+        Length.sendKeys(length);
+        Height.sendKeys(height);
+        Width.sendKeys(width);
+    }
+    public void SelectInventoryMethod(String method){
+        Select sl = new Select(inventoryMethod);
+        switch (method){
+            case "Don't track inventory":
+                sl.selectByVisibleText("Don't track inventory");
+                break;
+            case "Track inventory":
+                sl.selectByVisibleText("Track inventory");
+                break;
+            case "Track inventory by product attributes":
+                sl.selectByVisibleText("Track inventory by product attributes");
+                break;
         }
     }
 

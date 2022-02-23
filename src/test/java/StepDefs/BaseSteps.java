@@ -9,10 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjetcs.CustomerRoles;
-import pageObjetcs.LoginPage;
-import pageObjetcs.Logs_Page;
-import pageObjetcs.Sales_orders;
+import pageObjetcs.*;
 
 import javax.swing.text.AttributeSet;
 
@@ -24,6 +21,7 @@ public class BaseSteps {
     public Sales_orders so;
     public JavascriptExecutor js;
     public Logs_Page logs;
+    public Product_add pa;
 
     protected WebDriver getWebDriver(){
         if (driver == null){

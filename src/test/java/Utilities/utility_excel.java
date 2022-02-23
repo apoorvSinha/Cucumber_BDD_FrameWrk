@@ -13,7 +13,9 @@ import java.util.HashMap;
 
 public class utility_excel {
     //https://www.geeksforgeeks.org/collections-in-java-2/
+
     public static HashMap<String, String> ExternalDataFetcher() throws IOException {
+
         File fl = new File("src/test/java/Utils_loc/data.xlsx");
         FileInputStream fis= null;
         try {
