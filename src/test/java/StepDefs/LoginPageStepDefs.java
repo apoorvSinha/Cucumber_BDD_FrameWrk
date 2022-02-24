@@ -66,9 +66,9 @@ public class LoginPageStepDefs extends BaseSteps{
     }
 
 
-    @Then("Close the browser")
+    /*@Then("Close the browser")
     public void close_the_browser() {
         driver.quit();
-    }
+    }*/
 
 }

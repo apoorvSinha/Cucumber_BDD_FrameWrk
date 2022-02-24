@@ -7,4 +7,4 @@ Feature: Login
     Then page title should be "Dashboard / nopCommerce administration"
     When user clicks on Logout link
     Then Page title should be "Your store. Login"
-    And Close the browser
+    #And Close the browser

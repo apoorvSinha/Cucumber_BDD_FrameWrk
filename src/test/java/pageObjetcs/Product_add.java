@@ -3,6 +3,7 @@ package pageObjetcs;
 import StepDefs.BaseSteps;
 import Utilities.utility_excel;
 import io.cucumber.java.ht.Le;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -31,7 +32,8 @@ public class Product_add {
     WebElement AddNewProduct;
     @FindBy(xpath = "//button[@class='btn btn-primary']")
     WebElement SaveButton;
-
+    @FindBy(xpath = "//div[@class='onoffswitch']")
+    WebElement BasicMode;
     @FindBy(xpath = "//input[@id='Name']")
     WebElement ProductName;
     @FindBy(xpath = "//textarea[@id='ShortDescription']")
@@ -40,16 +42,21 @@ public class Product_add {
     WebElement FullDescription;
     @FindBy(xpath = "//input[@id='Sku']")
     WebElement Sku;
-    @FindBy(xpath = "//select[@id='SelectedCategoryIds']")
+    @FindBy(xpath = "//div[@role='listbox']")
     WebElement Categories;
+
+    @FindBy(xpath = "//*[@id=\"product-price-area\"]/div[2]/span[1]/span/input[1]")
+    WebElement PricenotClcked;
     @FindBy(xpath = "//input[@id='Price']")
-    WebElement Price;
+    WebElement PriceClicked;
     @FindBy(xpath = "//input[@id='IsTaxExempt']")
     WebElement TaxExempt;
     @FindBy(xpath = "//select[@id='TaxCategoryId']")
     WebElement TaxCategory;
     @FindBy(xpath = "//input[@id='IsShipEnabled']")
     WebElement ShippingEnabled;
+    @FindBy(xpath = "")
+    WebElement WeightNotClicked;
     @FindBy(xpath = "//input[@id='Weight']")
     WebElement Weight;
     @FindBy(xpath = "//input[@id='Length']")
@@ -79,6 +86,7 @@ public class Product_add {
     }
 
     public void EnterProductName(String name) {
+        BasicMode.click();
         ProductName.sendKeys(name);
     }
 
@@ -94,7 +102,63 @@ public class Product_add {
         Sku.sendKeys(sku);
     }
 
-    public void SelectCategory(String category) {
+    public void SelectCategory(String category){
+        Categories.click();
+
+        switch (category) {
+            case "Computers":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Computers')]")).click();
+                break;
+            case "Computers >> Desktops":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Computers >> Desktops')]")).click();
+                break;
+            case "Computers >> Notebooks":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Computers >> Notebooks')]")).click();
+                break;
+            case "Computers >> Software":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Computers >> Software')]")).click();
+                break;
+            case "Electronics":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Electronics')]")).click();
+                break;
+            case "Electronics >> Camera & photo":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Electronics >> Camera & photo')]")).click();
+                break;
+            case "Electronics >> Cell phones":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Electronics >> Cell phones')]")).click();
+                break;
+            case "Electronics >> Others":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Electronics >> Others')]")).click();
+                break;
+            case "Apparel":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Apparel')]")).click();
+                break;
+            case "Apparel >> Shoes":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Apparel >> Shoes')]")).click();
+                break;
+            case "Apparel >> Clothing":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Apparel >> Clothing')]")).click();
+                break;
+            case "Apparel >> Accessories":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Apparel >> Accessories')]")).click();
+                break;
+            case "Digital downloads":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Digital downloads')]")).click();
+                break;
+            case "Books":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Books')]")).click();
+                break;
+            case "Jewelry":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Jewelry')]")).click();
+                break;
+            case "Gift Cards":
+                ldriver.findElement(By.xpath("//ul[@class='k-list k-reset']//li[contains(text(),'Gift Cards')]")).click();
+                break;
+        }
+        ldriver.findElement(By.xpath("//label[contains(text(),'Categories')]")).click();
+    }
+
+    public void SelectCategoryObsolute(String category) {
         Select sl = new Select(Categories);
         switch (category) {
             case "Computers":
@@ -151,7 +215,8 @@ public class Product_add {
     }
 
     public void EnterPrice(String price) {
-        Price.sendKeys(price);
+        PricenotClcked.click();
+        PriceClicked.sendKeys(price);
     }
 
     public void TaxCategorySelection(String taxCategory) {
@@ -203,6 +268,7 @@ public class Product_add {
         }
     }
     public void EnterProductSpecifications(String weight, String length, String width, String height){
+        WeightNotClicked.click();
         Weight.sendKeys(weight);
         Length.sendKeys(length);
         Height.sendKeys(height);

@@ -50,9 +50,9 @@ public class CustomerPageStepDefs extends BaseSteps {
     public void user_gets_a_message(String msg) {
 
     }
-    @After
+    /*@After
     public void TearDown(){
         driver.quit();
-    }
+    }*/
 }
 

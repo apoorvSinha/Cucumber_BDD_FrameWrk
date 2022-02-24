@@ -81,9 +81,5 @@ public class Product_addSteps extends BaseSteps {
     public void user_clicks_on_save_button() {
         pa.SaveButtonClick();
     }
-    @Then("user closes the browser")
-    public void user_closes_the_browser() throws InterruptedException {
-        Thread.sleep(30000);
-        driver.quit();
-    }
+
 }
