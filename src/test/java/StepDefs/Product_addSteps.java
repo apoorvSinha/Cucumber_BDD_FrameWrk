@@ -45,7 +45,7 @@ public class Product_addSteps extends BaseSteps {
     }
     @Then("user verifies that Basic input is selected")
     public void user_verifies_that_basic_input_is_selected() {
-
+        pa.CheckifBasic();
     }
     @Then("user enters all the details in the fields")
     public void user_enters_all_the_details_in_the_fields() throws IOException, InterruptedException {

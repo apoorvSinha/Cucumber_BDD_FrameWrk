@@ -32,6 +32,8 @@ public class Product_add {
     WebElement AddNewProduct;
     @FindBy(xpath = "//button[@class='btn btn-primary']")
     WebElement SaveButton;
+    @FindBy(xpath = "//div[@class='onoffswitch']//input")
+    WebElement BasicModeSelected;
     @FindBy(xpath = "//div[@class='onoffswitch']")
     WebElement BasicMode;
     @FindBy(xpath = "//input[@id='Name']")
@@ -91,9 +93,13 @@ public class Product_add {
         //bs.js.executeScript("arguments[0].scrollIntoView(true);",SaveButton );
         SaveButton.click();
     }
+    public void CheckifBasic(){
+        if(BasicModeSelected.isSelected()){
+            BasicMode.click();
+        }
 
+    }
     public void EnterProductName(String name) {
-        BasicMode.click();
         ProductName.sendKeys(name);
 
     }
