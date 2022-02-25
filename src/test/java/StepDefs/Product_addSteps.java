@@ -72,7 +72,6 @@ public class Product_addSteps extends BaseSteps {
             pa.EnterProductSpecifications(weight,length,width,height);
         }
 
-        driver.findElement(By.xpath("//div[@class='card card-secondary card-outline collapsed-card']//div[contains(text(),'Inventory')]")).click();
         Thread.sleep(2000);
         pa.SelectInventoryMethod(getValuesFromSheet("Inventory method"));
 

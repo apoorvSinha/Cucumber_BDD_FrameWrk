@@ -55,17 +55,23 @@ public class Product_add {
     WebElement TaxCategory;
     @FindBy(xpath = "//input[@id='IsShipEnabled']")
     WebElement ShippingEnabled;
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//div[@id='product-shipping-area']//*[@class=\"nested-setting\"]/div[1]/div[2]/span[1]/span/input[1]")
     WebElement WeightNotClicked;
     @FindBy(xpath = "//input[@id='Weight']")
     WebElement Weight;
+    @FindBy(xpath = "//div[@id='product-shipping-area']//div[@class='nested-setting']//div[2]/div[2]/span[1]//input[1]")
+    WebElement lengthNotlciked;
     @FindBy(xpath = "//input[@id='Length']")
     WebElement Length;
+    @FindBy(xpath = "//div[@id='product-shipping-area']//div[@class='nested-setting']//div[4]/div[2]/span[1]//input[1]")
+    WebElement heightNotClciked;
     @FindBy(xpath = "//input[@id='Height']")
     WebElement Height;
+    @FindBy(xpath = "//div[@id='product-shipping-area']//div[@class='nested-setting']//div[3]/div[2]/span[1]//input[1]")
+    WebElement WidthNotClicked;
     @FindBy(xpath = "//input[@id='Width']")
     WebElement Width;
-    @FindBy(xpath = "//select[@id='ManageInventoryMethodId']")
+    @FindBy(xpath = "//div[@id='product-inventory-area']//div[2]//select")
     WebElement inventoryMethod;
 
 
@@ -79,15 +85,17 @@ public class Product_add {
         AddNewProduct.click();
     }
     public void SaveButtonClick(){
-        //Actions action = new Actions(ldriver);
-        //action.moveToElement(SaveButton);
-        bs.js.executeScript("arguments[0].scrollIntoView(true);",SaveButton );
+        Actions action = new Actions(ldriver);
+        action.moveToElement(SaveButton);
+
+        //bs.js.executeScript("arguments[0].scrollIntoView(true);",SaveButton );
         SaveButton.click();
     }
 
     public void EnterProductName(String name) {
         BasicMode.click();
         ProductName.sendKeys(name);
+
     }
 
     public void EnterShortDiscription(String description) {
@@ -270,11 +278,15 @@ public class Product_add {
     public void EnterProductSpecifications(String weight, String length, String width, String height){
         WeightNotClicked.click();
         Weight.sendKeys(weight);
+        lengthNotlciked.click();
         Length.sendKeys(length);
+        heightNotClciked.click();
         Height.sendKeys(height);
+        WidthNotClicked.click();
         Width.sendKeys(width);
     }
     public void SelectInventoryMethod(String method){
+
         Select sl = new Select(inventoryMethod);
         switch (method){
             case "Don't track inventory":
