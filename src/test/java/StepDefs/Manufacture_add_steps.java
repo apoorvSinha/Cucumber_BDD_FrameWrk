@@ -1,11 +1,13 @@
 package StepDefs;
 
 import io.cucumber.java.en.*;
+import pageObjetcs.manufacture_add_f;
 
-public class Manufacture_add_steps {
+public class Manufacture_add_steps extends BaseSteps {
 
     @Given("user clicks on catalog main menu")
     public void user_clicks_on_catalog_main_menu() {
+        maf = new manufacture_add_f();
 
     }
 

@@ -22,6 +22,7 @@ public class BaseSteps {
     public JavascriptExecutor js;
     public Logs_Page logs;
     public Product_add pa;
+    public manufacture_add_f maf;
 
     protected WebDriver getWebDriver(){
         if (driver == null){
