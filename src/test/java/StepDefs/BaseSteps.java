@@ -24,6 +24,7 @@ public class BaseSteps {
     public Product_add pa;
     public manufacture_add_f maf;
 
+
     protected WebDriver getWebDriver(){
         if (driver == null){
             WebDriverManager.chromedriver().setup();

@@ -35,7 +35,7 @@ public class manufacture_add_f {
     @FindBy(xpath = "//input[@id='DisplayOrder']")
     WebElement DisplayOrder;
 
-    //mappings
+    //mappings set
 
 
 }
