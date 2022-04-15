@@ -3,6 +3,8 @@ package pageObjetcs;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class manufacture_add_f {
     //navigation
     @FindBy(xpath = "//a//p[contains(text(),'Catalog')]")
@@ -36,6 +38,13 @@ public class manufacture_add_f {
     WebElement DisplayOrder;
 
     //mappings set
-
+    @FindBy(xpath = "//*[@id=\"manufacturer-mappings\"]/div[2]/div[2]/div[2]/div/div[1]/div/div/input")
+    WebElement limitedToCustomerRolesNotClicked;
+    @FindBy(xpath = "//*[@id=\"manufacturer-mappings\"]/div[2]/div[3]/div[2]/div/div[1]/div")
+    WebElement LimitedToStoresNotClicked;
+    @FindBy(xpath = "//ul[@id=\"SelectedCustomerRoleIds_listbox\"]//li")
+    List<WebElement> limitedToCustomerRolesClicked;
+    @FindBy(xpath = "//ul[@id=\"SelectedStoreIds_listbox\"]//li")
+    List<WebElement> LimitedToStoresClciked;
 
 }
