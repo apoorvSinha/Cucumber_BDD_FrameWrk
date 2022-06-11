@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pageObjetcs.CustomerRoles;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class CustomerPageStepDefs extends BaseSteps {
@@ -13,7 +14,7 @@ public class CustomerPageStepDefs extends BaseSteps {
     @Given("User clicks on customer main menu item")
     public void user_clicks_on_customer_main_menu_item() throws InterruptedException {
         cr = new CustomerRoles(driver);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         cr.getPageTitle();
         cr.ClickCustomerMenu();

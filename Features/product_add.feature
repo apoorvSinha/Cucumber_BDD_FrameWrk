@@ -13,4 +13,3 @@ Feature: Add a new Product
       And user verifies that Basic input is selected
       Then user enters all the details in the fields
       Then user clicks on save button
-     

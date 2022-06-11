@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SeleniumCucumber" />
+        <module name="Cucumber_BDD_FrameWrk" />
       </profile>
     </annotationProcessing>
   </component>
