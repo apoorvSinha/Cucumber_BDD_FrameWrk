@@ -16,4 +16,4 @@ jobs:
           command: mvn clean
       - run: 
           name: Run Test
-          command: mvn clean install
+          command: mvn Test
