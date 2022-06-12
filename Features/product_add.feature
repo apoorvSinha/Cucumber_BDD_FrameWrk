@@ -1,3 +1,4 @@
+@smoke
 Feature: Add a new Product
   Background: User is logged in and goes in Customers tab
     Given User launch chrome browser

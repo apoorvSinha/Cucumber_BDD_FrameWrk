@@ -1,3 +1,4 @@
+@sanity
 Feature: user wants to add a new manufacturer for the business
   Background: User is logged in and goes in Customers tab
     Given User launch chrome browser

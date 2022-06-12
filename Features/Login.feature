@@ -1,3 +1,4 @@
+@bvt
 Feature: Login
   Scenario: Successful login with valid credentials
     Given User launch chrome browser

@@ -7,13 +7,11 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         publish = true,
-        features = ".//Features/Manufacture_add.feature",
+        features = "./Features/Login.feature",
         glue = "StepDefs",
-        dryRun = true,
+        dryRun = false,
         monochrome = true,
-        plugin = {"pretty",
-                "html:test-output"
-        }
+        plugin = {"pretty"}
 )
 
 public class TestRunner {

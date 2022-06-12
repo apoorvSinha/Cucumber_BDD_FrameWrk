@@ -1,3 +1,4 @@
+@sanity
 Feature: Get all logs of the system
   Background: User is logged in and goes in Systems tab
     Given User launch chrome browser
