@@ -1,12 +1,13 @@
 package StepDefs;
-import io.cucumber.java.After;
-import io.cucumber.java.en.*;
-import org.junit.Assert;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pageObjetcs.CustomerRoles;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public class CustomerPageStepDefs extends BaseSteps {
     WebDriver driver = getWebDriver();

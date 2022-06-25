@@ -1,7 +1,8 @@
 package StepDefs;
 
-import io.cucumber.java.en.*;
-import org.openqa.selenium.By;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 import pageObjetcs.Logs_Page;
 

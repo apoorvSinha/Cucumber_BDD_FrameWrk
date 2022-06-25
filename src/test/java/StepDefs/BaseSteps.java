@@ -6,12 +6,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjetcs.*;
 
-import javax.swing.text.AttributeSet;
+import java.time.Duration;
 
 
 public class BaseSteps {
@@ -34,7 +33,7 @@ public class BaseSteps {
     }
 
     public static void getExplicitWait(WebElement elem, int Wait_time){
-        WebDriverWait wait = new WebDriverWait(driver, Wait_time);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Wait_time));
         wait.until(ExpectedConditions.visibilityOf(elem));
     }
     public static String getNumberFromString(String num_string){

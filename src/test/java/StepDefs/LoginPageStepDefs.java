@@ -1,16 +1,11 @@
 package StepDefs;
 
-import io.cucumber.java.en.*;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import pageObjetcs.CustomerRoles;
 import pageObjetcs.LoginPage;
-
-import java.util.concurrent.TimeUnit;
 
 public class LoginPageStepDefs extends BaseSteps{
     WebDriver driver = getWebDriver();
