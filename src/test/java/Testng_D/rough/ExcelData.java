@@ -1,34 +1,33 @@
-package Testng_D.Tests;
-
-import Testng_D.BaseSteps.BaseSteps;
-import Testng_D.Objects.LoginObjects;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+package Testng_D.rough;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class loginPage extends BaseSteps{
-    @Test(dataProvider = "getCredentials")
-    public void Login_f(String userName, String password){
-        driver.get("https://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F");
-        loginobjects = new LoginObjects(driver);
-        loginobjects.setUserName(userName);
-        loginobjects.setPassword(password);
-        loginobjects.clickLogin();
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class ExcelData {
+    public static void main(String[] args) throws IOException {
+//		for(String str: getData("login")){
+//			System.out.println(str);
+//		}
+        for(int i=1; i< 2; i++){
+            for(int j=1; j<=2; j++){
+                System.out.println(getData("login").get(i+j));
+            }
+        }
     }
 
-    @DataProvider
-    public Object[][] getCredentials() throws IOException {
-        String sheetName = "login";
+    public static ArrayList<String> getData(String sheetName) throws IOException {
+
         File f = new File("./src/test/java/Testng_D/DataFetcher/Credentials.xlsx");
         FileInputStream fis = new FileInputStream(f);
         XSSFWorkbook workbook = new XSSFWorkbook(fis);
@@ -55,14 +54,8 @@ public class loginPage extends BaseSteps{
             }
 
         }
-        Object[][] data = new Object[1][2];
-        //to remove first 2 data for headings
-        for(int i=1; i< 2; i++){
-            for(int j=1; j<=2; j++){
-                data[i-1][j-1] = a.get(i+j);
-            }
-        }
-        return data;
+
+        return a;
 
     }
 
