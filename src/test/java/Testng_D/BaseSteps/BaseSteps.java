@@ -4,6 +4,7 @@ import Testng_D.Objects.LoginObjects;
 import Utilities_testng.ExcelReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -28,13 +29,12 @@ public class BaseSteps {
         }catch(IOException E){
             E.printStackTrace();
         }
-
         if(driver==null){
             //initiating edge driver as execution environment
-            String browser = "edge";
-            if(browser.equalsIgnoreCase(OR.getProperty("Edgebrowser"))){
-                WebDriverManager.edgedriver().setup();
-                driver=new EdgeDriver();
+            String browser = "chrome";
+            if(browser.equalsIgnoreCase(OR.getProperty("Chromebrowser"))){
+                WebDriverManager.chromedriver().setup();
+                driver =new ChromeDriver();
             }
         }
     }
