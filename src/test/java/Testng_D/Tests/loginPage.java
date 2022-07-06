@@ -1,6 +1,6 @@
 package Testng_D.Tests;
 
-import Testng_D.BaseSteps.BaseSteps;
+import Testng_D.base_steps.BaseSteps;
 import Testng_D.Objects.LoginObjects;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class loginPage extends BaseSteps{
-    @Test(dataProvider = "getCredentials")
+
+    @Test(dataProvider = "getCredentials", priority = 1)
     public void Login_f(String userName, String password){
-        driver.get("https://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F");
         loginobjects = new LoginObjects(driver);
         loginobjects.setUserName(userName);
         loginobjects.setPassword(password);

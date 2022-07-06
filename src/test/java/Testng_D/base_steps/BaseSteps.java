@@ -1,11 +1,12 @@
-package Testng_D.BaseSteps;
+package Testng_D.base_steps;
 
 import Testng_D.Objects.LoginObjects;
+import Testng_D.Objects.LogsObjects;
 import Utilities_testng.ExcelReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
@@ -18,7 +19,8 @@ public class BaseSteps {
     Properties OR = new Properties();
     FileInputStream fis;
     public WebDriver driver;
-    public LoginObjects loginobjects;
+    public LoginObjects loginobjects ;
+    public LogsObjects logs ;
 
     @BeforeSuite
     public void setup(){
@@ -35,6 +37,7 @@ public class BaseSteps {
             if(browser.equalsIgnoreCase(OR.getProperty("Chromebrowser"))){
                 WebDriverManager.chromedriver().setup();
                 driver =new ChromeDriver();
+                driver.get("https://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F");
             }
         }
     }
@@ -43,5 +46,18 @@ public class BaseSteps {
     public void TearDown() throws InterruptedException {
         Thread.sleep(3000);
         driver.quit();
+    }
+
+    public static boolean NextPageControl(WebElement elem){
+        boolean flag = false;
+        String page = elem.getText();
+        String[] page_str = page.split("[ -]");
+
+        if (Integer.parseInt(page_str[1]) < Integer.parseInt(page_str[3])){
+            flag = true;
+        }
+
+        return flag;
+
     }
 }
