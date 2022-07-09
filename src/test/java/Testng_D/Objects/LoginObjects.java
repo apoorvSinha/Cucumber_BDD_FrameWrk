@@ -7,46 +7,47 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginObjects {
-    public WebDriver ldriver;
-
-    public LoginObjects(WebDriver rdriver) {
-        ldriver = rdriver;
-        PageFactory.initElements(ldriver, this);
+public class LoginObjects extends BaseSteps {
+    WebDriver driver;
+    public LoginObjects(WebDriver driver){
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
-
     @FindBy(xpath = "//input[@id='Email']")
     @CacheLookup
-    WebElement txtEmail;
+    static WebElement txtEmail;
 
     @FindBy(xpath = "//input[@id='Password']")
     @CacheLookup
+    static
     WebElement txtPwd;
 
     @FindBy(xpath = "//button[contains(text(), 'Log in')]")
     @CacheLookup
+    static
     WebElement txtLogin;
 
     @FindBy(linkText = "Logout")
     @CacheLookup
+    static
     WebElement linkLogout;
 
 
-    public void setUserName(String uName) {
+    public static void setUserName(String uName) {
         txtEmail.clear();
         txtEmail.sendKeys(uName);
     }
 
-    public void setPassword(String pwd) {
+    public static void setPassword(String pwd) {
         txtPwd.clear();
         txtPwd.sendKeys(pwd);
     }
 
-    public void clickLogin() {
+    public static void clickLogin() {
         txtLogin.click();
     }
 
-    public void clickLogout() {
+    public static void clickLogout() {
         linkLogout.click();
     }
 

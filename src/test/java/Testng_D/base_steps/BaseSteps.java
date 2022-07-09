@@ -12,15 +12,16 @@ import org.testng.annotations.BeforeSuite;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 public class BaseSteps {
     public ExcelReader excelReader;
     Properties OR = new Properties();
     FileInputStream fis;
-    public WebDriver driver;
-    public LoginObjects loginobjects ;
-    public LogsObjects logs ;
+    public static WebDriver driver;
+    public LoginObjects loginobjects;
+    public LogsObjects logs;
 
     @BeforeSuite
     public void setup(){
@@ -38,6 +39,10 @@ public class BaseSteps {
                 WebDriverManager.chromedriver().setup();
                 driver =new ChromeDriver();
                 driver.get("https://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F");
+                driver.manage().window().maximize();
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                loginobjects = new LoginObjects(driver);
+                logs = new LogsObjects(driver);
             }
         }
     }

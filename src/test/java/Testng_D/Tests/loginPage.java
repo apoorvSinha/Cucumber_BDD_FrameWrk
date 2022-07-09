@@ -16,14 +16,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class loginPage extends BaseSteps{
-
+public class loginPage{
     @Test(dataProvider = "getCredentials", priority = 1)
     public void Login_f(String userName, String password){
-        loginobjects = new LoginObjects(driver);
-        loginobjects.setUserName(userName);
-        loginobjects.setPassword(password);
-        loginobjects.clickLogin();
+        LoginObjects.setUserName(userName);
+        LoginObjects.setPassword(password);
+        LoginObjects.clickLogin();
     }
 
     @DataProvider

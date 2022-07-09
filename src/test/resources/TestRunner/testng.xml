@@ -6,6 +6,12 @@
             <class name="Testng_D.Tests.loginPage" />
         </classes>
     </test>
+    <test name="Logs test" >
+        <classes>
+            <class name="Testng_D.Tests.GettingLogs" />
+        </classes>
+    </test>
+
 
 </suite>
 

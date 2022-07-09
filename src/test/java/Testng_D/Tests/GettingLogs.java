@@ -2,24 +2,24 @@ package Testng_D.Tests;
 
 import Testng_D.base_steps.BaseSteps;
 import Testng_D.Objects.LogsObjects;
+import org.openqa.selenium.logging.Logs;
 import org.testng.annotations.Test;
 
-public class GettingLogs extends BaseSteps {
+public class GettingLogs extends BaseSteps{
 
-    @Test
+    @Test(priority = 1)
     public void navigation(){
-        logs = new LogsObjects(driver);
-        logs.ClickSystemMainMenu();
-        logs.ClickLogsSubMenu();
+        LogsObjects.ClickSystemMainMenu();
+        LogsObjects.ClickLogsSubMenu();
     }
-    @Test
+    @Test(priority = 2)
     public void getting_logs_level(){
-        logs.ClickLogLevel("warning");
-        logs.ClickSearchButton();
+        LogsObjects.ClickLogLevel("warning");
+        LogsObjects.ClickSearchButton();
     }
-    @Test
+    @Test(priority = 3)
     public void PrintLogsMessage() throws InterruptedException {
-        logs.ClickNextButton();
+        LogsObjects.ClickNextButton();
     }
 
 
