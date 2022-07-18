@@ -2,6 +2,7 @@ package Testng_D.base_steps;
 
 import Testng_D.Objects.LoginObjects;
 import Testng_D.Objects.LogsObjects;
+import Testng_D.Tests.LoginPage;
 import Utilities_testng.ExcelReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +22,7 @@ public class BaseSteps {
     FileInputStream fis;
     public static WebDriver driver;
     public LoginObjects loginobjects;
-    public LogsObjects logs;
+    public LogsObjects logsobjects;
 
     @BeforeSuite
     public void setup(){
@@ -42,7 +43,7 @@ public class BaseSteps {
                 driver.manage().window().maximize();
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                 loginobjects = new LoginObjects(driver);
-                logs = new LogsObjects(driver);
+                logsobjects = new LogsObjects(driver);
             }
         }
     }

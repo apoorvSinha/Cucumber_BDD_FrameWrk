@@ -7,19 +7,19 @@ import org.testng.annotations.Test;
 
 public class GettingLogs extends BaseSteps{
 
-    @Test(priority = 1)
-    public void navigation(){
-        LogsObjects.ClickSystemMainMenu();
-        LogsObjects.ClickLogsSubMenu();
-    }
     @Test(priority = 2)
-    public void getting_logs_level(){
-        LogsObjects.ClickLogLevel("warning");
-        LogsObjects.ClickSearchButton();
+    public void navigation(){
+        logsobjects.ClickSystemMainMenu();
+        logsobjects.ClickLogsSubMenu();
     }
     @Test(priority = 3)
+    public void getting_logs_level(){
+        logsobjects.ClickLogLevel("warning");
+        logsobjects.ClickSearchButton();
+    }
+    @Test(priority = 4)
     public void PrintLogsMessage() throws InterruptedException {
-        LogsObjects.ClickNextButton();
+        logsobjects.ClickNextButton();
     }
 
 

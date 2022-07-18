@@ -7,6 +7,8 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -16,12 +18,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class loginPage{
+public class LoginPage extends BaseSteps{
+    public LoginPage lp;
+    public LoginPage(){
+        this.lp = new LoginObjects(WebDriver driver);
+        PageFactory.initElements(driver, this.lp);
+    }
     @Test(dataProvider = "getCredentials", priority = 1)
     public void Login_f(String userName, String password){
-        LoginObjects.setUserName(userName);
-        LoginObjects.setPassword(password);
-        LoginObjects.clickLogin();
+        loginobjects.setUserName(userName);
+        loginobjects.setPassword(password);
+        loginobjects.clickLogin();
     }
 
     @DataProvider

@@ -3,14 +3,15 @@
 
     <test name="Login test" >
         <classes>
-            <class name="Testng_D.Tests.loginPage" />
+            <class name="Testng_D.Tests.LoginPage" />
         </classes>
     </test>
-    <test name="Logs test" >
-        <classes>
-            <class name="Testng_D.Tests.GettingLogs" />
-        </classes>
-    </test>
+<!--    <test name="logs test" >-->
+<!--        <classes>-->
+<!--            <class name="Testng_D.Tests.GettingLogs" />-->
+<!--        </classes>-->
+<!--    </test>-->
+
 
 
 </suite>

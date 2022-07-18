@@ -12,41 +12,35 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 
 public class LogsObjects extends BaseSteps{
-    static WebDriver driver;
+    WebDriver driver;
 
     public LogsObjects(WebDriver driver){
-        LogsObjects.driver = driver;
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
     @FindBy(xpath = "//li//a//p[contains(text(),'System')]")
-    static
-    WebElement SystemMainMenu;
+    public WebElement SystemMainMenu;
     @FindBy(xpath = "//a//p[contains(text(),'Log')]")
-    static
-    WebElement LogSubMenu;
+    public WebElement LogSubMenu;
     @FindBy(xpath = "//*[@id=\"LogLevelId\"]")
-    static
-    WebElement SelectLoglevel;
+    public WebElement SelectLoglevel;
     @FindBy(xpath = "//*[@id=\"search-log\"]")
-    static
-    WebElement SearchButton;
+    public WebElement SearchButton;
     @FindBy(xpath = "//*[@id=\"log-grid_next\"]/a/i")
-    static
-    WebElement NextButton;
+    public WebElement NextButton;
     @FindBy(xpath = "//table//tr//td[3]")
-    static
-    List<WebElement> logMessages;
+    public List<WebElement> logMessages;
 
 
-    public static void ClickSystemMainMenu(){
+    public void ClickSystemMainMenu(){
         SystemMainMenu.click();
     }
 
 
-    public static void ClickLogsSubMenu(){
+    public void ClickLogsSubMenu(){
         LogSubMenu.click();
     }
-    public static void ClickLogLevel(String lg_level){
+    public void ClickLogLevel(String lg_level){
         Select slc = new Select(SelectLoglevel);
         if(lg_level.equalsIgnoreCase("warning")){
             slc.selectByVisibleText("Warning");
@@ -65,7 +59,7 @@ public class LogsObjects extends BaseSteps{
         }
 
     }
-    public static void getAllMessages(){
+    public void getAllMessages(){
         int msg_number = 1;
         for(WebElement logMessage : logMessages){
             System.out.println("message "+msg_number+" is: "+logMessage.getText());
@@ -74,10 +68,10 @@ public class LogsObjects extends BaseSteps{
     }
 
 
-    public static void ClickSearchButton(){
+    public void ClickSearchButton(){
         SearchButton.click();
     }
-    public static void ClickNextButton() throws InterruptedException {
+    public void ClickNextButton() throws InterruptedException {
         while(BaseSteps.NextPageControl(driver.findElement(By.xpath("//div[@class='dataTables_info']")))){
             NextButton.click();
             Thread.sleep(5000);
